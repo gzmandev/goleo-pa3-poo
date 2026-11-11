@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+   version="6.0">
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!-- PÁGINA DE INICIO POR DEFECTO: REDIRIGE LA RAÍZ DIRECTAMENTE A /home -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
+
+    <!-- SERVLET: HOME (MENÚ PRINCIPAL PA3) -->
+    <servlet>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>com.gzman.pa3poo.Controller.HomeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+
+    <!-- MÓDULO 01: JUEGO DE DADOS – JUGADOR VS. COMPUTADORA (Leandro Jerek Salas Bustos) -->
+    <servlet>
+        <servlet-name>DadosController</servlet-name>
+        <servlet-class>com.gzman.pa3poo.Controller.DadosController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DadosController</servlet-name>
+        <url-pattern>/dados</url-pattern>
+    </servlet-mapping>
+
+    <!-- MÓDULO 02: ABECEDARIO – BÚSQUEDA Y ORDENAMIENTO DE CARACTERES (Matias Manuel Solano Pino) -->
+    <servlet>
+        <servlet-name>AbecedarioController</servlet-name>
+        <servlet-class>com.gzman.pa3poo.Controller.AbecedarioController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AbecedarioController</servlet-name>
+        <url-pattern>/abecedario</url-pattern>
+    </servlet-mapping>
+
+    <!-- MÓDULO 03: TABLA ASCII – GENERACIÓN Y FILTRADO DE NÚMEROS (Richard Jose Gonzalez Cordova) -->
+    <servlet>
+        <servlet-name>TablaAsciController</servlet-name>
+        <servlet-class>com.gzman.pa3poo.Controller.TablaAsciController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TablaAsciController</servlet-name>
+        <url-pattern>/tablaAsci</url-pattern>
+    </servlet-mapping>
+
+    <!-- MÓDULO 04: FIGURAS GEOMÉTRICAS – CÁLCULO DE ÁREAS Y PERÍMETROS (Adriel Mathias Guzman Soria) -->
+    <servlet>
+        <servlet-name>FigurasController</servlet-name>
+        <servlet-class>com.gzman.pa3poo.Controller.FigurasController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FigurasController</servlet-name>
+        <url-pattern>/figuras</url-pattern>
+    </servlet-mapping>
+
+    <!-- MÓDULO 05: CONVERSIÓN ASCII – TEXTO A CÓDIGOS Y CÓDIGOS A TEXTO (Adriel Mathias Guzman Soria) -->
+    <servlet>
+        <servlet-name>ConversionAsciController</servlet-name>
+        <servlet-class>com.gzman.pa3poo.Controller.ConversionAsciController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConversionAsciController</servlet-name>
+        <url-pattern>/conversionAsci</url-pattern>
+    </servlet-mapping>
+
+    <!-- VISTA INSTITUCIONAL: NUESTRO EQUIPO (LOS CINCO INTEGRANTES) -->
+    <servlet>
+        <servlet-name>EquipoController</servlet-name>
+        <servlet-class>com.gzman.pa3poo.Controller.EquipoController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EquipoController</servlet-name>
+        <url-pattern>/equipo</url-pattern>
+    </servlet-mapping>
+
+</web-app>

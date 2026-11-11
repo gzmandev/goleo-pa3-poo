@@ -1,0 +1,3210 @@
+/* ==========================================================================
+   GOLEO - SISTEMA DE DISEÑO VISUAL GLOBAL CON MODO OSCURO & FREDOKA + NUNITO
+   Plataforma Educativa Gamificada • Programación Orientada a Objetos (PA3)
+   Identidad Oficial: GoLeo | Mascota: LEO
+   ========================================================================== */
+
+/* ==========================================================================
+   1. VARIABLES DE MARCA, MODO CLARO Y MODO OSCURO
+   ========================================================================== */
+:root {
+    color-scheme: light;
+
+    /* Tipografías Oficiales */
+    --font-heading: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Paleta Oficial GoLeo */
+    --color-primary: #6C4CCF;
+    --color-primary-dark: #583BB3;
+    --color-primary-light: #8E70E8;
+    --color-orange: #F28C28;
+    --color-orange-dark: #D86F0E;
+    --color-yellow: #FFC83D;
+    --color-yellow-dark: #E6AC20;
+    --color-blue: #4B9DEB;
+    --color-blue-dark: #2982D4;
+    --color-green: #35B779;
+    --color-green-dark: #259760;
+
+    /* Superficies y Fondos (Modo Claro) */
+    --bg-body: #F7F8FC;
+    --bg-surface: #FFFFFF;
+    --bg-sidebar: #FFFFFF;
+    --bg-header: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-card-alt: #F1F3F9;
+    --bg-modal: #FFFFFF;
+    --bg-input: #FFFFFF;
+
+    /* Textos (Modo Claro) */
+    --text-primary: #302A46;
+    --text-secondary: #77738A;
+    --text-muted: #8C86A8;
+
+    /* Bordes y Sombras (Modo Claro) */
+    --border-color: #EAE8F1;
+    --border-color-focus: var(--color-primary);
+    --shadow-color: rgba(48, 42, 70, 0.08);
+    --shadow-sm: 0 2px 8px rgba(48, 42, 70, 0.05);
+    --shadow-md: 0 6px 18px rgba(48, 42, 70, 0.07);
+    --shadow-lg: 0 12px 32px rgba(48, 42, 70, 0.1);
+
+    /* Subtles y Badges (Modo Claro) */
+    --goleo-purple-subtle: #F0EBFC;
+    --goleo-orange-subtle: #FEF4EA;
+    --goleo-gold-subtle: #FFF9E6;
+    --goleo-blue-subtle: #EDF6FD;
+    --goleo-green-subtle: #EBF8F2;
+    --goleo-danger-subtle: #FEE2E2;
+
+    /* Dimensiones del Layout */
+    --goleo-sidebar-width: 250px;
+    --goleo-header-height: 82px;
+
+    /* Mapeo de compatibilidad */
+    --goleo-purple: var(--color-primary);
+    --goleo-purple-dark: var(--color-primary-dark);
+    --goleo-purple-light: var(--color-primary-light);
+    --goleo-orange: var(--color-orange);
+    --goleo-gold: var(--color-yellow);
+    --goleo-blue: var(--color-blue);
+    --goleo-green: var(--color-green);
+    --goleo-bg: var(--bg-body);
+    --goleo-white: var(--bg-surface);
+    --goleo-dark: var(--text-primary);
+    --goleo-gray-100: var(--bg-card-alt);
+    --goleo-gray-200: var(--border-color);
+    --goleo-gray-500: var(--text-muted);
+    --goleo-gray-700: #4B4568;
+}
+
+/* ==========================================================================
+   MODO OSCURO ([data-theme="dark"])
+   ========================================================================== */
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    /* Superficies y Fondos (Modo Oscuro) */
+    --bg-body: #171522;
+    --bg-surface: #211E30;
+    --bg-sidebar: #211E30;
+    --bg-header: #211E30;
+    --bg-card: #29253A;
+    --bg-card-alt: #1F1B2C;
+    --bg-modal: #252136;
+    --bg-input: #1A1726;
+
+    /* Textos (Modo Oscuro) */
+    --text-primary: #F5F2FF;
+    --text-secondary: #B9B2CC;
+    --text-muted: #8E86A8;
+
+    /* Bordes y Sombras (Modo Oscuro) */
+    --border-color: #393449;
+    --shadow-color: rgba(0, 0, 0, 0.45);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45);
+
+    /* Subtles y Badges (Modo Oscuro con opacidad balanceada) */
+    --goleo-purple-subtle: rgba(108, 76, 207, 0.25);
+    --goleo-orange-subtle: rgba(242, 140, 40, 0.25);
+    --goleo-gold-subtle: rgba(255, 200, 61, 0.25);
+    --goleo-blue-subtle: rgba(75, 157, 235, 0.25);
+    --goleo-green-subtle: rgba(53, 183, 121, 0.25);
+    --goleo-danger-subtle: rgba(239, 68, 68, 0.25);
+
+    /* Mapeo de compatibilidad */
+    --goleo-bg: var(--bg-body);
+    --goleo-white: var(--bg-card);
+    --goleo-dark: var(--text-primary);
+    --goleo-gray-100: var(--bg-card-alt);
+    --goleo-gray-200: var(--border-color);
+    --goleo-gray-300: #4B4562;
+    --goleo-gray-500: var(--text-muted);
+    --goleo-gray-700: #C7BFDE;
+}
+
+/* ==========================================================================
+   2. TIPOGRAFÍAS (FREDOKA + NUNITO)
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.modal-title, .card-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: var(--text-primary);
+}
+
+button,
+.btn,
+.nav-link,
+.sidebar-menu-link,
+.badge {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+p, span, label, input, select, textarea, table, .form-control, .form-select {
+    font-family: var(--font-body);
+}
+
+/* ==========================================================================
+   3. RESET Y ESTILOS GENERALES CON TRANSICIÓN DE TEMA
+   ========================================================================== */
+html, body {
+    height: 100%;
+}
+
+body.goleo-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Transiciones suaves entre temas */
+header,
+footer,
+aside,
+main,
+.card,
+.modal-content,
+.offcanvas,
+.form-control,
+.form-select,
+.goleo-stat-pill,
+.sidebar-profile-card,
+.widget-card,
+.achievement-card {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+/* ==========================================================================
+   4. HEADER REDISEÑADO (MAYOR PRESENCIA VISUAL, 82PX DE ALTO)
+   ========================================================================== */
+.app-header {
+    height: var(--goleo-header-height);
+    min-height: var(--goleo-header-height);
+    background-color: var(--bg-header);
+    color: var(--text-primary);
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    border-bottom: 2px solid var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow-color);
+    display: flex;
+    align-items: center;
+}
+
+.app-header .header-inner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    gap: 1.5rem;
+}
+
+/* Brand e Identidad GoLeo (Mascota + Tipografía Integrada) */
+.goleo-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: var(--text-primary) !important;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+.goleo-brand:hover {
+    transform: scale(1.025);
+}
+
+.goleo-brand-logo {
+    width: 54px;
+    height: 54px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    box-shadow: none;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+.goleo-brand:hover .goleo-brand-logo {
+    transform: rotate(-4deg) scale(1.08);
+}
+.goleo-brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 8px rgba(108, 76, 207, 0.22));
+}
+
+.goleo-brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.goleo-brand-name {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    line-height: 1.05;
+    margin: 0;
+    color: var(--color-primary);
+    position: relative;
+    display: inline-block;
+}
+.goleo-brand-name span {
+    color: var(--color-orange);
+}
+.goleo-brand-name::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 32px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-orange));
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.goleo-brand:hover .goleo-brand-name::after {
+    width: 100%;
+}
+
+.goleo-brand-slogan {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-top: 2px;
+    display: block;
+    letter-spacing: 0.1px;
+}
+
+/* Enlace de salto accesible (Skip Link) */
+.goleo-skip-link {
+    position: absolute;
+    top: -60px;
+    left: 1rem;
+    background: var(--color-primary);
+    color: #FFFFFF !important;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 99999;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: top 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+.goleo-skip-link:focus {
+    top: 1rem;
+    outline: 3px solid var(--color-yellow);
+    outline-offset: 2px;
+}
+
+/* Insignia académica en Header */
+.goleo-header-badge {
+    background: var(--goleo-purple-subtle);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 7px 18px;
+    font-family: var(--font-heading);
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.3px;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+/* Contenedor de acciones del Header */
+.goleo-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+/* Indicadores de gamificación suavizados (Racha, XP, Vidas, Nivel) */
+.goleo-stats-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.goleo-stat-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    gap: 7px;
+    border-radius: 999px;
+    padding: 0 14px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+    user-select: none;
+    border: 1px solid transparent;
+}
+.goleo-stat-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.goleo-stat-pill svg,
+.goleo-stat-pill [data-lucide] {
+    width: 17px;
+    height: 17px;
+    display: block;
+    flex-shrink: 0;
+}
+
+.goleo-stat-value {
+    font-weight: 800;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+}
+.goleo-stat-unit {
+    font-size: 0.76rem;
+    font-weight: 700;
+    opacity: 0.9;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1px;
+}
+
+.goleo-stat-pill.racha {
+    background: var(--goleo-orange-subtle);
+    color: var(--color-orange);
+    border-color: rgba(242, 140, 40, 0.25);
+}
+.goleo-stat-pill.xp {
+    background: var(--goleo-gold-subtle);
+    color: var(--color-yellow-dark);
+    border-color: rgba(255, 200, 61, 0.35);
+}
+.goleo-stat-pill.vidas {
+    background: var(--goleo-danger-subtle);
+    color: #EF4444;
+    border-color: rgba(239, 68, 68, 0.25);
+}
+.goleo-stat-pill.nivel {
+    background: var(--goleo-purple-subtle);
+    color: var(--color-primary);
+    border-color: rgba(108, 76, 207, 0.25);
+}
+
+/* Perfil en Header */
+.goleo-header-profile-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: transform 0.2s ease;
+}
+.goleo-header-profile-btn:hover {
+    transform: scale(1.03);
+}
+.goleo-header-profile-btn:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 999px;
+}
+.goleo-header-profile-name {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    max-width: 130px;
+}
+.goleo-header-avatar {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.goleo-header-avatar img {
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.12));
+}
+
+/* Botón de alternancia de tema Claro/Oscuro */
+.theme-toggle-btn {
+    background: var(--bg-card-alt);
+    border: 2px solid var(--border-color);
+    border-radius: 14px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+.theme-toggle-btn:hover {
+    background: var(--goleo-purple-subtle);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+/* Botón hamburguesa móvil */
+/* Botón hamburguesa móvil */
+.goleo-sidebar-toggle-btn {
+    background: var(--bg-card-alt);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 14px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+.goleo-sidebar-toggle-btn:hover {
+    background: var(--goleo-purple-subtle);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* ==========================================================================
+   5. SIDEBAR (PERSISTENTE EN DESKTOP, OFFCANVAS EN MÓVIL)
+   ========================================================================== */
+.app-sidebar {
+    width: var(--goleo-sidebar-width);
+    min-width: var(--goleo-sidebar-width);
+    max-width: var(--goleo-sidebar-width);
+    background-color: var(--bg-sidebar);
+    border-right: 2px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.35rem 0.95rem;
+    transition: all 0.3s ease;
+    z-index: 1025;
+}
+
+@media (min-width: 992px) {
+    .app-sidebar {
+        position: sticky;
+        top: var(--goleo-header-height);
+        height: calc(100vh - var(--goleo-header-height));
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .app-sidebar.offcanvas-lg {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 290px;
+        max-width: 85vw;
+        border-right: 2px solid var(--border-color);
+        box-shadow: 4px 0 24px var(--shadow-color);
+    }
+}
+
+.sidebar-section-title {
+    font-family: var(--font-heading);
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    padding: 0 0.75rem;
+    margin: 1.15rem 0 0.5rem 0;
+}
+.sidebar-section-title:first-of-type {
+    margin-top: 0;
+}
+
+.sidebar-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu-item {
+    margin-bottom: 5px;
+}
+
+.sidebar-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 15px;
+    border-radius: 14px;
+    font-family: var(--font-heading);
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.sidebar-menu-link i,
+.sidebar-menu-link svg.lucide {
+    transition: transform 0.2s ease;
+}
+
+.sidebar-menu-link:hover {
+    background-color: var(--bg-card-alt);
+    color: var(--text-primary);
+    transform: translateX(4px);
+}
+.sidebar-menu-link:hover .goleo-icon-box {
+    transform: scale(1.1);
+}
+
+.sidebar-menu-link.active {
+    background: var(--bg-card-alt);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    box-shadow: 0 3px 10px var(--shadow-sm);
+    font-weight: 700;
+}
+.sidebar-menu-link.active#nav-link-home {
+    background: var(--goleo-purple-subtle);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+.sidebar-menu-link.active#nav-link-dados {
+    background: var(--goleo-orange-subtle);
+    border-color: var(--color-orange);
+    color: var(--color-orange);
+}
+.sidebar-menu-link.active#nav-link-abecedario {
+    background: var(--goleo-purple-subtle);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+.sidebar-menu-link.active#nav-link-tablaAsci {
+    background: var(--goleo-blue-subtle);
+    border-color: var(--color-blue);
+    color: var(--color-blue);
+}
+.sidebar-menu-link.active#nav-link-figuras {
+    background: var(--goleo-green-subtle);
+    border-color: var(--color-green);
+    color: var(--color-green);
+}
+.sidebar-menu-link.active#nav-link-conversionAsci {
+    background: var(--goleo-gold-subtle);
+    border-color: var(--color-yellow-dark);
+    color: var(--color-yellow-dark);
+}
+
+.sidebar-menu-link.active::after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+/* Colores temáticos oficiales por módulo (Lucide Icons) */
+.sidebar-menu-link .icon-modulo-inicio { color: var(--color-primary); }
+.sidebar-menu-link .icon-modulo-dados { color: var(--color-orange); }
+.sidebar-menu-link .icon-modulo-abecedario { color: var(--color-primary); }
+.sidebar-menu-link .icon-modulo-tablaasci { color: var(--color-blue); }
+.sidebar-menu-link .icon-modulo-figuras { color: var(--color-green); }
+.sidebar-menu-link .icon-modulo-conversionasci { color: var(--color-yellow-dark); }
+.sidebar-menu-link .icon-modulo-equipo { color: var(--color-orange); }
+
+.sidebar-link-label {
+    display: inline-block;
+    flex-grow: 1;
+}
+
+.sidebar-menu-link:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Sección de Logout en Sidebar */
+.sidebar-menu-list--logout {
+    margin-top: 0.85rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-color);
+}
+.sidebar-menu-link--logout {
+    color: #EF4444 !important;
+}
+.sidebar-menu-link--logout:hover {
+    background-color: var(--goleo-danger-subtle) !important;
+    color: #DC2626 !important;
+    border-color: rgba(239, 68, 68, 0.25) !important;
+}
+.theme-logout {
+    background-color: var(--goleo-danger-subtle) !important;
+    color: #EF4444 !important;
+    border-color: rgba(239, 68, 68, 0.25) !important;
+}
+
+/* Tarjeta de perfil inferior en Sidebar */
+.sidebar-profile-card {
+    background: var(--bg-card-alt);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 12px 14px;
+    margin-top: 1.2rem;
+    transition: all 0.2s ease;
+}
+.sidebar-profile-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 14px rgba(108, 76, 207, 0.15);
+}
+.sidebar-profile-name {
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.sidebar-profile-meta {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+.sidebar-profile-progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+.sidebar-profile-progress-value {
+    color: var(--color-primary);
+}
+.sidebar-profile-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--goleo-purple-subtle);
+    border: 2px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.sidebar-profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Barras de progreso globales GoLeo */
+.goleo-progress {
+    height: 10px;
+    border-radius: 999px;
+    background-color: var(--border-color);
+    overflow: hidden;
+}
+.goleo-progress--sm {
+    height: 7px;
+}
+.goleo-progress-bar {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    transition: width 0.4s ease;
+}
+.goleo-progress-bar--success {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-green));
+}
+
+/* ==========================================================================
+   6. LAYOUT PRINCIPAL (.app-layout, .main-content)
+   ========================================================================== */
+.app-layout {
+    display: flex;
+    flex: 1 0 auto;
+    width: 100%;
+    min-height: calc(100vh - var(--goleo-header-height));
+    position: relative;
+}
+
+.main-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    background-color: var(--bg-body);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   7. FOOTER REFINADO (ALINEACIÓN PROFESIONAL, LEO MASCOTA, ENLACES Y VOLVER ARRIBA)
+   ========================================================================== */
+.app-footer {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-primary);
+    margin-top: auto;
+    padding: 2.25rem 0 1.5rem 0;
+    position: relative;
+    z-index: 1010;
+}
+
+.goleo-footer-brand {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+}
+.goleo-footer-brand span {
+    color: var(--color-orange);
+}
+
+.goleo-footer-logo {
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    flex-shrink: 0;
+}
+.goleo-footer-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 5px rgba(108, 76, 207, 0.15));
+}
+
+.goleo-footer-heading {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.2px;
+}
+
+.goleo-footer-nav ul li {
+    margin-bottom: 0.4rem;
+}
+
+.goleo-footer-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+.goleo-footer-link:hover {
+    color: var(--color-primary);
+    transform: translateX(3px);
+}
+.goleo-footer-link i {
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+}
+
+.goleo-footer-mascot-sm {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.goleo-footer-slogan {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.goleo-back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--bg-card-alt);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.goleo-back-to-top:hover {
+    background: var(--goleo-purple-subtle);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(108, 76, 207, 0.15);
+}
+
+.goleo-footer-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    opacity: 0.6;
+}
+
+/* ==========================================================================
+   8. COMPONENTES Y POSES OFICIALES DE LEO (CATÁLOGO DE 10 POSES)
+   ========================================================================== */
+.leo-figure {
+    display: inline-block;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+
+/* 2.1 Leo Animando (Reintentos, errores, ánimo) */
+.leo-pose-animando {
+    max-height: 120px;
+    object-fit: contain;
+}
+
+/* 2.2 Leo Celebrando (Éxitos, victorias, felicitaciones) */
+.leo-pose-celebrando {
+    max-height: 130px;
+    object-fit: contain;
+    animation: bounceLeo 2s ease infinite;
+}
+
+/* 2.3 Leo Echado (Estados vacíos, sin jugadas/datos) */
+.leo-empty-state-card {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: var(--bg-card-alt);
+    border: 2px dashed var(--border-color);
+    border-radius: 20px;
+    margin: 1rem 0;
+}
+.leo-empty-state-img {
+    max-height: 140px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+.leo-empty-state-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+.leo-empty-state-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+/* 2.4 Leo Enseñando (Instrucciones, conceptos, reglas) */
+.leo-instruction-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 1.25rem 1.5rem;
+    background: var(--goleo-purple-subtle);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    margin-bottom: 1.5rem;
+}
+.leo-pose-ensenando {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* 2.5 Leo Sentado (Perfil, paneles, cards informativas) */
+.leo-pose-sentado {
+    max-height: 110px;
+    object-fit: contain;
+}
+
+/* 2.6 Leo Pensando (Preguntas, formularios, antes de calcular) */
+.leo-thinking-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--goleo-blue-subtle);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 6px 16px;
+    color: var(--color-blue-dark);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.88rem;
+}
+.leo-thinking-badge img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* 2.7 Leo Pulgar Arriba (Validaciones, confirmaciones) */
+.leo-pose-pulgar {
+    max-height: 100px;
+    object-fit: contain;
+}
+
+/* 2.8 Leo Saludando (Home Hero, bienvenida principal) */
+.leo-mascot-container {
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 3px solid rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+    animation: floatMascot 3s ease-in-out infinite;
+}
+.leo-mascot-img {
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+}
+
+/* 2.9 Leo Señalando (Camino de aprendizaje, guías) */
+.leo-pose-senalando {
+    max-height: 90px;
+    object-fit: contain;
+}
+
+/* 2.10 Leo con Trofeo (Logros, recompensas, medallas) */
+.leo-trofeo-hero {
+    max-height: 150px;
+    object-fit: contain;
+    animation: bounceLeo 2.5s ease-in-out infinite;
+}
+
+@keyframes bounceLeo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* ==========================================================================
+   8.1 ICONOS VECTORIALES SVG GOLEO (LUCIDE ICONS OFICIALES)
+   ========================================================================== */
+svg.lucide,
+[data-lucide] {
+    stroke-width: 2.25px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* Iconos vectoriales personalizados para Figuras Geométricas: Romboide y Trapecio */
+.lucide-romboide,
+.lucide-trapecio {
+    stroke: currentColor;
+    fill: currentColor;
+    fill-opacity: 0.15;
+}
+
+.lucide-romboide polygon,
+.lucide-trapecio polygon {
+    vector-effect: non-scaling-stroke;
+}
+
+/* Contenedores para iconos de módulos (uniformes, modernos y redondeados) */
+.goleo-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    flex-shrink: 0;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+    border: 1.5px solid transparent;
+}
+
+/* Tamaños de contenedor */
+.goleo-icon-box.size-sm {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+}
+.goleo-icon-box.size-sm svg.lucide,
+.goleo-icon-box.size-sm [data-lucide] {
+    width: 17px;
+    height: 17px;
+}
+
+.goleo-icon-box.size-sidebar {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+}
+.goleo-icon-box.size-sidebar svg.lucide,
+.goleo-icon-box.size-sidebar [data-lucide] {
+    width: 22px;
+    height: 22px;
+}
+
+.goleo-icon-box.size-card {
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+}
+.goleo-icon-box.size-card svg.lucide,
+.goleo-icon-box.size-card [data-lucide] {
+    width: 42px;
+    height: 42px;
+}
+
+.goleo-icon-box.size-hero {
+    width: 80px;
+    height: 80px;
+    border-radius: 22px;
+}
+.goleo-icon-box.size-hero svg.lucide,
+.goleo-icon-box.size-hero [data-lucide] {
+    width: 46px;
+    height: 46px;
+}
+
+/* Colores oficiales de contenedor e icono por módulo:
+   1. Juego de Dados: dice-5 → Naranja (#F28C28)
+   2. Abecedario: case-upper → Morado (#6C4CCF)
+   3. Tabla ASCII: table → Azul (#4B9DEB)
+   4. Figuras Geométricas: shapes → Verde (#35B779)
+   5. Conversión ASCII: arrow-left-right → Amarillo dorado (#FFC83D)
+*/
+.goleo-icon-box.theme-dados {
+    background-color: var(--goleo-orange-subtle);
+    color: var(--color-orange);
+    border-color: rgba(242, 140, 40, 0.25);
+}
+.goleo-icon-box.theme-equipo {
+    background-color: var(--goleo-orange-subtle);
+    color: var(--color-orange);
+    border-color: rgba(242, 140, 40, 0.25);
+}
+.goleo-icon-box.theme-abecedario {
+    background-color: var(--goleo-purple-subtle);
+    color: var(--color-primary);
+    border-color: rgba(108, 76, 207, 0.25);
+}
+.goleo-icon-box.theme-tablaasci {
+    background-color: var(--goleo-blue-subtle);
+    color: var(--color-blue);
+    border-color: rgba(75, 157, 235, 0.25);
+}
+.goleo-icon-box.theme-figuras {
+    background-color: var(--goleo-green-subtle);
+    color: var(--color-green);
+    border-color: rgba(53, 183, 121, 0.25);
+}
+.goleo-icon-box.theme-conversionasci {
+    background-color: var(--goleo-gold-subtle);
+    color: var(--color-yellow-dark);
+    border-color: rgba(255, 200, 61, 0.32);
+}
+.goleo-icon-box.theme-primary {
+    background-color: var(--goleo-purple-subtle);
+    color: var(--color-primary);
+    border-color: rgba(108, 76, 207, 0.25);
+}
+
+/* ==========================================================================
+   9. TARJETAS Y CONTENEDORES (.card-pa3, .card-modulo-*)
+   ========================================================================== */
+.card-pa3 {
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-header-pa3 {
+    padding: 1.5rem 1.75rem;
+    color: #FFFFFF;
+    text-align: center;
+    position: relative;
+}
+.card-header-pa3 h3 {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.3px;
+    color: #FFFFFF;
+}
+
+/* Cabeceras Oficiales por Módulo según Especificación */
+.card-modulo-dados .card-header-pa3 {
+    background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-orange-dark) 100%);
+}
+.card-modulo-abecedario .card-header-pa3 {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+.card-modulo-tablaasci .card-header-pa3 {
+    background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-dark) 100%);
+}
+.card-modulo-figuras .card-header-pa3 {
+    background: linear-gradient(135deg, var(--color-green) 0%, var(--color-green-dark) 100%);
+}
+.card-modulo-conversionasci .card-header-pa3 {
+    background: linear-gradient(135deg, var(--color-yellow) 0%, var(--color-yellow-dark) 100%);
+    color: #211E30;
+}
+.card-modulo-conversionasci .card-header-pa3 h3 {
+    color: #211E30;
+}
+
+/* Botones específicos de acción por módulo */
+.btn-modulo-dados {
+    background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-orange-dark) 100%);
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(242, 140, 40, 0.32);
+}
+.btn-modulo-abecedario {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(108, 76, 207, 0.32);
+}
+.btn-modulo-tablaasci {
+    background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-dark) 100%);
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(75, 157, 235, 0.32);
+}
+.btn-modulo-figuras {
+    background: linear-gradient(135deg, var(--color-green) 0%, var(--color-green-dark) 100%);
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(53, 183, 121, 0.32);
+}
+.btn-modulo-conversionasci {
+    background: linear-gradient(135deg, var(--color-yellow) 0%, var(--color-yellow-dark) 100%);
+    color: #211E30 !important;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(255, 200, 61, 0.35);
+}
+
+.card-footer-pa3 {
+    background-color: var(--bg-card-alt);
+    border-top: 1px solid var(--border-color);
+    padding: 1.1rem 1.5rem;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   ALERTAS EDUCATIVAS Y GUÍAS DE USO (.alert-pa3)
+   Paneles de instrucciones integradas con profundidad y soporte Light & Dark
+   ========================================================================== */
+.alert-pa3 {
+    border-radius: 18px;
+    padding: 1.25rem 1.5rem;
+    border: 1.5px solid var(--border-color);
+    box-shadow: 0 4px 16px var(--shadow-sm);
+    color: var(--text-primary);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alert-pa3:hover {
+    box-shadow: 0 6px 20px var(--shadow-md);
+}
+
+/* Modulaciones cromáticas y de sombra por módulo */
+.card-modulo-dados .alert-pa3 {
+    background-color: var(--goleo-orange-subtle);
+    border-color: rgba(242, 140, 40, 0.25);
+    box-shadow: 0 4px 16px rgba(242, 140, 40, 0.12), 0 2px 6px var(--shadow-sm);
+}
+
+.card-modulo-abecedario .alert-pa3 {
+    background-color: var(--goleo-purple-subtle);
+    border-color: rgba(108, 76, 207, 0.25);
+    box-shadow: 0 4px 16px rgba(108, 76, 207, 0.12), 0 2px 6px var(--shadow-sm);
+}
+
+.card-modulo-tablaasci .alert-pa3 {
+    background-color: var(--goleo-blue-subtle);
+    border-color: rgba(75, 157, 235, 0.25);
+    box-shadow: 0 4px 16px rgba(75, 157, 235, 0.12), 0 2px 6px var(--shadow-sm);
+}
+
+.card-modulo-figuras .alert-pa3 {
+    background-color: var(--goleo-green-subtle);
+    border-color: rgba(53, 183, 121, 0.25);
+    box-shadow: 0 4px 16px rgba(53, 183, 121, 0.12), 0 2px 6px var(--shadow-sm);
+}
+
+.card-modulo-conversionasci .alert-pa3 {
+    background-color: var(--goleo-gold-subtle);
+    border-color: rgba(255, 200, 61, 0.35);
+    box-shadow: 0 4px 16px rgba(230, 172, 32, 0.12), 0 2px 6px var(--shadow-sm);
+}
+
+/* Modo oscuro balanceado para .alert-pa3 */
+[data-theme="dark"] .alert-pa3 {
+    box-shadow: 0 4px 18px var(--shadow-color);
+}
+
+[data-theme="dark"] .card-modulo-dados .alert-pa3 {
+    background-color: var(--goleo-orange-subtle);
+    border-color: rgba(242, 140, 40, 0.35);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 1px rgba(242, 140, 40, 0.35);
+}
+
+[data-theme="dark"] .card-modulo-abecedario .alert-pa3 {
+    background-color: var(--goleo-purple-subtle);
+    border-color: rgba(108, 76, 207, 0.35);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 1px rgba(108, 76, 207, 0.35);
+}
+
+[data-theme="dark"] .card-modulo-tablaasci .alert-pa3 {
+    background-color: var(--goleo-blue-subtle);
+    border-color: rgba(75, 157, 235, 0.35);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 1px rgba(75, 157, 235, 0.35);
+}
+
+[data-theme="dark"] .card-modulo-figuras .alert-pa3 {
+    background-color: var(--goleo-green-subtle);
+    border-color: rgba(53, 183, 121, 0.35);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 1px rgba(53, 183, 121, 0.35);
+}
+
+[data-theme="dark"] .card-modulo-conversionasci .alert-pa3 {
+    background-color: var(--goleo-gold-subtle);
+    border-color: rgba(255, 200, 61, 0.40);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 1px rgba(255, 200, 61, 0.35);
+}
+
+/* En modo oscuro, legibilidad luminosa para títulos e iconos morados de Abecedario */
+[data-theme="dark"] .card-modulo-abecedario .alert-pa3 .fw-bold[style*="color: var(--color-primary)"] {
+    color: var(--color-primary-light) !important;
+}
+[data-theme="dark"] .card-modulo-abecedario .alert-pa3 [data-lucide] {
+    color: var(--color-primary-light) !important;
+}
+
+/* ==========================================================================
+   10. BOTONES (.btn-pa3, RELIEVE TÁCTIL DUOLINGO)
+   ========================================================================== */
+.btn-pa3 {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: #FFFFFF !important;
+    border: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 14px;
+    padding: 11px 26px;
+    box-shadow: 0 4px 14px rgba(108, 76, 207, 0.32);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-pa3:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(108, 76, 207, 0.42);
+    opacity: 0.96;
+}
+.btn-pa3:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(108, 76, 207, 0.2);
+}
+
+.btn-outline-secondary {
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+.btn-outline-secondary:hover {
+    background-color: var(--bg-card-alt);
+    color: var(--text-primary);
+    border-color: var(--color-primary);
+}
+
+/* ==========================================================================
+   11. FORMULARIOS (INPUTS MODERNOS EN MODO CLARO Y OSCURO)
+   ========================================================================== */
+.form-label {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.45rem;
+}
+
+.form-control,
+.form-select {
+    border-radius: 14px;
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    padding: 0.7rem 1rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.form-control:focus,
+.form-select:focus {
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(108, 76, 207, 0.2);
+}
+
+/* ==========================================================================
+   12. TABLAS Y RESULTADOS
+   ========================================================================== */
+.table {
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+.table-thead-pa3 {
+    background-color: var(--goleo-purple-subtle);
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+[data-theme="dark"] .table-hover > tbody > tr:hover > * {
+    background-color: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+}
+[data-theme="dark"] .table > :not(caption) > * > * {
+    background-color: transparent;
+    color: var(--text-primary);
+    border-bottom-color: var(--border-color);
+}
+
+/* ==========================================================================
+   13. MODALES Y OFFCANVAS (ADAPTADOS A AMBOS TEMAS)
+   ========================================================================== */
+.modal-content {
+    background-color: var(--bg-modal);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+.modal-footer {
+    border-top: 1px solid var(--border-color);
+}
+.offcanvas {
+    background-color: var(--bg-sidebar);
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   14. COMPONENTES DEL HOME (DISEÑO INTEGRAL OPTIMIZADO)
+   ========================================================================== */
+
+/* Layout general del Dashboard Home (Grid de dos columnas en escritorio) */
+.home-dashboard-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 1.75rem;
+    padding: 1.75rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: start;
+}
+
+@media (max-width: 1199.98px) {
+    .home-dashboard-layout {
+        grid-template-columns: minmax(0, 1fr) 310px;
+        gap: 1.25rem;
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .home-dashboard-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+}
+
+.home-path-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    min-width: 0;
+}
+
+.home-widgets-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: calc(var(--goleo-header-height) + 1.25rem);
+}
+
+@media (max-width: 991.98px) {
+    .home-widgets-col {
+        position: static;
+        top: auto;
+    }
+}
+
+/* 14.1 Tarjeta de Bienvenida (Welcome Card) */
+.welcome-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #5134A8 100%);
+    border-radius: 26px;
+    padding: 2.25rem;
+    color: #FFFFFF;
+    box-shadow: 0 14px 34px -8px rgba(108, 76, 207, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.welcome-text {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.welcome-text h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: #FFFFFF;
+    line-height: 1.25;
+}
+
+.home-welcome-slogan {
+    font-family: var(--font-heading);
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: var(--color-yellow);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.home-welcome-desc {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.leo-bubble {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 5px 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #FFE58F;
+}
+
+.leo-bubble svg,
+.leo-bubble i {
+    width: 15px;
+    height: 15px;
+}
+
+.home-welcome-mascot {
+    width: 135px;
+    height: 135px;
+    flex-shrink: 0;
+}
+
+/* 14.2 Secciones estándar del Home (.home-section) */
+.home-section {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 24px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.home-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+}
+
+.home-section-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.home-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.home-section-title svg {
+    width: 22px;
+    height: 22px;
+    color: var(--color-primary);
+}
+
+.home-section-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    margin: 0;
+    font-weight: 600;
+}
+
+.home-section-leo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Leo señalando el inicio en la ruta */
+.home-start-hint {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--goleo-purple-subtle);
+    border: 1.5px solid var(--border-color);
+    border-radius: 16px;
+    padding: 8px 14px;
+    max-width: 380px;
+}
+
+.home-start-hint img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.home-start-hint-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--color-primary);
+}
+
+.home-start-hint-text {
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+/* ==========================================================================
+   14.3 CAMINITO DE APRENDIZAJE GAMIFICADO (NODOS DUOLINGO EN ZIGZAG)
+   ========================================================================== */
+.learning-path {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 1.5rem 0 2rem 0;
+}
+
+.path-step-container {
+    position: relative;
+    margin-bottom: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.path-step-container.pos-center {
+    transform: translateX(0);
+}
+
+.path-step-container.pos-left {
+    transform: translateX(-65px);
+}
+
+.path-step-container.pos-right {
+    transform: translateX(65px);
+}
+
+.path-step-container.pos-far-left {
+    transform: translateX(-105px);
+}
+
+@media (max-width: 576px) {
+    .path-step-container.pos-left,
+    .path-step-container.pos-right,
+    .path-step-container.pos-far-left {
+        transform: translateX(0);
+    }
+}
+
+.node-crown {
+    position: absolute;
+    top: -24px;
+    background: linear-gradient(135deg, var(--color-yellow), var(--color-yellow-dark));
+    color: #211E30;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 3px 12px;
+    border-radius: 999px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.node-crown svg,
+.node-crown i {
+    width: 14px;
+    height: 14px;
+}
+
+.path-node {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-decoration: none !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.12), 0 15px 25px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border: 4px solid #FFFFFF;
+}
+
+.path-node i,
+.path-node svg,
+.path-node [data-lucide] {
+    width: 44px;
+    height: 44px;
+    color: #FFFFFF;
+    transition: transform 0.2s ease;
+}
+
+.path-node:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.path-node:hover i,
+.path-node:hover svg,
+.path-node:hover [data-lucide] {
+    transform: scale(1.08);
+}
+
+.path-node:active {
+    transform: translateY(6px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.path-node:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+/* Colores temáticos oficiales para cada nodo del caminito */
+.path-node.node-dados {
+    background: linear-gradient(135deg, var(--color-orange), var(--color-orange-dark));
+    box-shadow: 0 10px 0 var(--color-orange-dark), 0 15px 25px rgba(242, 140, 40, 0.35);
+}
+.path-node.node-dados:active {
+    box-shadow: 0 4px 0 var(--color-orange-dark);
+}
+
+.path-node.node-abecedario {
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+    box-shadow: 0 10px 0 var(--color-primary-dark), 0 15px 25px rgba(108, 76, 207, 0.35);
+}
+.path-node.node-abecedario:active {
+    box-shadow: 0 4px 0 var(--color-primary-dark);
+}
+
+.path-node.node-tablaasci {
+    background: linear-gradient(135deg, var(--color-blue), var(--color-blue-dark));
+    box-shadow: 0 10px 0 var(--color-blue-dark), 0 15px 25px rgba(75, 157, 235, 0.35);
+}
+.path-node.node-tablaasci:active {
+    box-shadow: 0 4px 0 var(--color-blue-dark);
+}
+
+.path-node.node-figuras {
+    background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+    box-shadow: 0 10px 0 var(--color-green-dark), 0 15px 25px rgba(53, 183, 121, 0.35);
+}
+.path-node.node-figuras:active {
+    box-shadow: 0 4px 0 var(--color-green-dark);
+}
+
+.path-node.node-conversionasci {
+    background: linear-gradient(135deg, var(--color-yellow), var(--color-yellow-dark));
+    box-shadow: 0 10px 0 var(--color-yellow-dark), 0 15px 25px rgba(255, 200, 61, 0.4);
+}
+.path-node.node-conversionasci:active {
+    box-shadow: 0 4px 0 var(--color-yellow-dark);
+}
+.path-node.node-conversionasci i,
+.path-node.node-conversionasci svg,
+.path-node.node-conversionasci [data-lucide] {
+    color: #211E30;
+}
+
+/* Compatibilidad con clases alternativas de nodo */
+.path-node.node-active {
+    background: linear-gradient(135deg, var(--goleo-purple-light), var(--goleo-purple));
+    border: 4px solid #FFFFFF;
+}
+.path-node.node-available {
+    background: linear-gradient(135deg, var(--goleo-blue), var(--goleo-blue-dark));
+    border: 4px solid #FFFFFF;
+}
+.path-node.node-gold {
+    background: linear-gradient(135deg, var(--goleo-orange), var(--goleo-orange-dark));
+    border: 4px solid #FFFFFF;
+}
+.path-node.node-green {
+    background: linear-gradient(135deg, var(--goleo-green), var(--goleo-green-dark));
+    border: 4px solid #FFFFFF;
+}
+.path-node.node-indigo {
+    background: linear-gradient(135deg, var(--goleo-gold), var(--goleo-gold-dark));
+    border: 4px solid #FFFFFF;
+}
+
+/* Tarjeta flotante emergente del nodo (.node-info-pop) */
+.node-info-pop {
+    margin-top: 14px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 18px;
+    padding: 0.75rem 1.35rem;
+    text-align: center;
+    box-shadow: 0 8px 22px rgba(48, 42, 70, 0.09);
+    min-width: 220px;
+    max-width: 280px;
+    transition: all 0.25s ease;
+}
+
+.node-info-pop:hover {
+    box-shadow: 0 12px 28px rgba(48, 42, 70, 0.14);
+    border-color: var(--color-primary);
+}
+
+.node-info-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.node-info-subtitle {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    line-height: 1.35;
+}
+
+.node-info-btn {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.4rem 1.15rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.node-info-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+.node-info-btn svg,
+.node-info-btn i {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+}
+
+.node-info-btn:hover svg,
+.node-info-btn:hover i {
+    transform: translateX(3px);
+}
+
+/* 14.4 Sección de Logros */
+.home-counter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--goleo-purple-subtle);
+    color: var(--color-primary);
+    border: 1.5px solid var(--border-color);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.home-counter-pill svg {
+    width: 15px;
+    height: 15px;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.achievement-card {
+    background: var(--bg-card-alt);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 1.4rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.achievement-card.is-unlocked {
+    border-color: rgba(53, 183, 121, 0.35);
+}
+
+.achievement-card.is-unlocked:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-green);
+    box-shadow: 0 8px 20px rgba(53, 183, 121, 0.18);
+}
+
+.achievement-card.is-locked {
+    opacity: 0.58;
+    filter: grayscale(45%);
+    border-style: dashed;
+}
+
+.achievement-card.is-locked:hover {
+    opacity: 0.85;
+    filter: grayscale(15%);
+    transform: translateY(-2px);
+}
+
+.achievement-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.achievement-status svg {
+    width: 14px;
+    height: 14px;
+}
+
+.achievement-card.is-unlocked .achievement-status {
+    background: var(--goleo-green-subtle);
+    color: var(--color-green);
+    border: 1px solid rgba(53, 183, 121, 0.3);
+}
+
+.achievement-card.is-locked .achievement-status {
+    background: var(--bg-surface);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+}
+
+.achievement-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin: 0.75rem 0 4px 0;
+}
+
+.achievement-desc {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.35;
+    margin: 0;
+}
+
+/* 14.5 Widgets de la Columna Derecha */
+.widget-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 22px;
+    padding: 1.4rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.widget-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.widget-title-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.text-primary-goleo {
+    color: var(--color-primary) !important;
+}
+
+.text-yellow-goleo {
+    color: var(--color-yellow-dark) !important;
+}
+
+.home-chip {
+    background: var(--bg-card-alt);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-family: var(--font-heading);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+/* Widget Progreso General */
+.home-progress-summary {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 0.65rem;
+}
+
+.home-progress-value {
+    font-family: var(--font-heading);
+    font-size: 2.15rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.home-progress-value small {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.home-progress-caption {
+    font-family: var(--font-heading);
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.home-progress-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.65rem;
+}
+
+.home-progress-xp {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.home-progress-xp svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Widget Misiones Diarias */
+.quest-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.quest-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 12px;
+    border-radius: 14px;
+    background: var(--bg-card-alt);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.quest-item.is-done {
+    border-color: rgba(53, 183, 121, 0.35);
+}
+
+.quest-content {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.quest-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    line-height: 1.25;
+}
+
+.quest-sub {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.quest-state {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 3px 8px;
+    flex-shrink: 0;
+}
+
+.quest-state--done {
+    background: var(--goleo-green-subtle);
+    color: var(--color-green);
+    border-color: rgba(53, 183, 121, 0.3);
+    padding: 4px 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quest-state--done svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Widget Consejo de Leo */
+.home-tip {
+    padding: 1.25rem;
+}
+
+.leo-tip-box {
+    background: var(--goleo-purple-subtle);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.leo-tip-avatar {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--color-primary);
+    background: var(--bg-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leo-tip-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.leo-tip-title {
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 4px 0;
+}
+
+.leo-tip-text {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* 14.6 Responsive móvil específico para componentes del Home */
+@media (max-width: 576px) {
+    .home-module-card {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 0.85rem;
+        padding: 1.1rem;
+    }
+
+    .home-module-cta {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .home-start-hint {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .achievement-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .welcome-card {
+        padding: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome-text h2 {
+        font-size: 1.4rem;
+    }
+
+    .home-welcome-mascot {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+@media (max-width: 380px) {
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   15. RESPONSIVE DESIGN & MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .app-header {
+        height: 76px;
+        min-height: 76px;
+    }
+    .app-header .header-inner {
+        padding: 0 1.25rem;
+        gap: 1rem;
+    }
+    .goleo-brand-name {
+        font-size: 1.55rem;
+    }
+    .goleo-brand-logo {
+        width: 48px;
+        height: 48px;
+    }
+    .goleo-header-actions {
+        gap: 10px;
+    }
+    .goleo-stat-pill {
+        height: 34px;
+        padding: 0 11px;
+        font-size: 0.84rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .app-header {
+        height: 70px;
+        min-height: 70px;
+    }
+    .app-header .header-inner {
+        padding: 0 0.85rem;
+        gap: 0.5rem;
+    }
+    .goleo-brand {
+        gap: 9px;
+    }
+    .goleo-brand-logo {
+        width: 42px;
+        height: 42px;
+    }
+    .goleo-brand-name {
+        font-size: 1.35rem;
+    }
+    .goleo-header-actions {
+        gap: 8px;
+    }
+    .goleo-stats-group {
+        gap: 6px;
+    }
+    .goleo-stat-pill {
+        height: 32px;
+        padding: 0 9px;
+        font-size: 0.78rem;
+        gap: 5px;
+    }
+    .goleo-stat-pill svg,
+    .goleo-stat-pill [data-lucide] {
+        width: 15px;
+        height: 15px;
+    }
+    .theme-toggle-btn,
+    .goleo-sidebar-toggle-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+    }
+    .goleo-header-avatar {
+        width: 38px;
+        height: 38px;
+    }
+    .card-header-pa3 {
+        padding: 1.1rem;
+    }
+    .card-header-pa3 h3 {
+        font-size: 1.15rem;
+    }
+    .welcome-card {
+        padding: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Accesibilidad: Respeto a las preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .leo-mascot-container,
+    .leo-trofeo-hero {
+        animation: none !important;
+    }
+}
+
+/* ==========================================================================
+   16. VISTA «NUESTRO EQUIPO» (LOS CINCO INTEGRANTES DE GOLEO)
+   ========================================================================== */
+
+/* 16.1 Hero / Encabezado de la página */
+.team-hero-card {
+    background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-card-alt) 100%);
+    border: 2px solid var(--border-color);
+    border-radius: 26px;
+    padding: 2.25rem;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-hero-badge {
+    background: var(--goleo-purple-subtle);
+    color: var(--color-primary);
+    border: 1px solid rgba(108, 76, 207, 0.25);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-family: var(--font-heading);
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.team-hero-title {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+}
+
+.team-hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-orange);
+    margin-bottom: 0.5rem;
+}
+
+.team-hero-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    max-width: 640px;
+    line-height: 1.5;
+}
+
+.team-hero-chip {
+    display: inline-flex;
+    align-items: center;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    box-shadow: 0 2px 6px var(--shadow-sm);
+}
+
+.team-mascot-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.team-mascot-img {
+    max-height: 165px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(108, 76, 207, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.team-mascot-wrapper:hover .team-mascot-img {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.team-mascot-bubble {
+    background: var(--color-yellow);
+    color: #211E30;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 6px 14px;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(230, 172, 32, 0.35);
+    margin-top: 8px;
+    display: inline-block;
+}
+
+/* 16.2 Encabezado de Sección y Contador */
+.team-section-heading {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.team-card-counter-badge {
+    background: var(--goleo-purple-subtle);
+    color: var(--color-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.88rem;
+}
+
+/* 16.3 Tarjetas de los Integrantes */
+.team-card {
+    background: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px var(--shadow-color);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px var(--shadow-md);
+    border-color: var(--card-accent);
+}
+
+.team-card-top-accent {
+    height: 6px;
+    width: 100%;
+    background-color: var(--card-accent);
+}
+
+.team-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.team-member-number-badge {
+    background: var(--bg-card-alt);
+    border: 1px solid var(--border-color);
+    color: var(--card-accent);
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.team-member-role-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    background: var(--bg-card-alt);
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+/* 16.4 Espacio del Avatar (Temporal y Definitivo) */
+.team-avatar-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.team-avatar-frame {
+    width: 96px;
+    height: 96px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.team-avatar-frame.is-placeholder {
+    background: var(--bg-card-alt);
+    border: 2px dashed var(--card-accent);
+    cursor: default;
+}
+
+.team-card:hover .team-avatar-frame.is-placeholder {
+    background: var(--bg-surface);
+    transform: scale(1.05);
+}
+
+.team-avatar-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px var(--shadow-sm);
+    margin-bottom: 4px;
+}
+
+.team-avatar-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--card-accent);
+}
+
+.team-avatar-pending-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.team-avatar-frame.has-image {
+    width: 112px;
+    height: 112px;
+    overflow: hidden;
+    background: var(--bg-card-alt);
+    border: 3px solid var(--card-accent);
+    box-shadow: 0 4px 14px var(--shadow-md);
+}
+
+.team-card:hover .team-avatar-frame.has-image {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px var(--shadow-md);
+}
+
+.team-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+/* 16.5 Textos e Información del Integrante */
+.team-member-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.team-member-theme-label {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* 16.6 Bloque de Porcentaje de Participación */
+.team-percentage-block {
+    background: var(--bg-card-alt);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 0.85rem 1rem;
+}
+
+.team-percentage-title {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+}
+
+.team-percentage-number {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--card-accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.team-provisional-pill {
+    font-size: 0.65rem;
+    font-weight: 700;
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 2px 6px;
+}
+
+.team-progress-track {
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.team-progress-fill {
+    background-color: var(--card-accent);
+    border-radius: 999px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 16.7 Sección ¿Qué aportó al proyecto? */
+.team-contribution-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-contribution-heading {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.team-contribution-heading i {
+    width: 16px;
+    height: 16px;
+    color: var(--card-accent);
+}
+
+.team-contribution-text {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 0;
+    flex-grow: 1;
+}
+
+/* 16.8 Resumen General */
+.team-summary-card {
+    background: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.team-summary-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: var(--goleo-purple-subtle);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.team-summary-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.team-summary-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.team-summary-stat {
+    background: var(--bg-card-alt);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-summary-stat .stat-number {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1.1;
+}
+
+.team-summary-stat .stat-label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.team-segmented-progress-wrapper {
+    background: var(--bg-card-alt);
+    border: 1px solid var(--border-color);
+}
+
+.team-segmented-progress {
+    border-radius: 999px;
+    background-color: var(--border-color);
+    overflow: hidden;
+}
+
+.team-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.team-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.team-card.is-lead-card {
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 26px var(--shadow-md);
+}
+
+.team-transversal-banner {
+    background: var(--goleo-purple-subtle);
+    color: var(--color-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 6px 10px;
+    font-size: 0.74rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+}
+
+.team-contribution-status-text {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    line-height: 1.35;
+}
+
+.team-details-collapse {
+    border-top: 1px dashed var(--border-color);
+    padding-top: 0.65rem;
+}
+
+.team-details-summary {
+    list-style: none;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--card-accent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    user-select: none;
+}
+
+.team-details-summary::-webkit-details-marker {
+    display: none;
+}
+
+.team-details-icon {
+    width: 15px;
+    height: 15px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.team-details-collapse[open] .team-details-icon {
+    transform: rotate(180deg);
+}
+
+.team-details-list {
+    padding-left: 1.15rem;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+}
+
+.team-details-list li {
+    margin-bottom: 0.3rem;
+}
+
+.team-summary-breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.team-summary-breakdown-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.team-summary-breakdown-item .team-legend-dot {
+    margin-top: 0.35rem;
+}
+
+.team-summary-breakdown-item strong {
+    color: var(--text-primary);
+}
+
+@media (max-width: 576px) {
+    .team-hero-card {
+        padding: 1.5rem;
+        text-align: center;
+    }
+    .team-hero-title {
+        font-size: 1.75rem;
+    }
+    .team-hero-desc {
+        font-size: 0.88rem;
+    }
+    .team-summary-card {
+        padding: 1.25rem;
+    }
+    .team-summary-stat {
+        min-width: 100%;
+    }
+}
+
+/* ==========================================================================
+   17. PÁGINAS DE AUTENTICACIÓN (LOGIN & REGISTRO GOLEO)
+   ========================================================================== */
+.goleo-auth-body {
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-topbar {
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+}
+
+.auth-main-container {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem 3rem 1rem;
+}
+
+.auth-card-wrapper {
+    width: 100%;
+    max-width: 440px;
+}
+
+.auth-card-wrapper.auth-card-wide {
+    max-width: 600px;
+}
+
+.auth-card {
+    background: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: 28px;
+    box-shadow: 0 16px 40px var(--shadow-color);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.auth-card-top-bar {
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-orange), var(--color-yellow));
+}
+
+.auth-card-content {
+    padding: 2.25rem 2.25rem;
+}
+
+.auth-mascot-container {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.auth-mascot-img {
+    height: 95px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 14px rgba(108, 76, 207, 0.22));
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-card:hover .auth-mascot-img {
+    transform: scale(1.06) rotate(-2deg);
+}
+
+.auth-title {
+    font-family: var(--font-heading);
+    font-size: 1.95rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: -0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.auth-subtitle {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+.auth-label {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.auth-input-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-primary);
+}
+
+.auth-input-group {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-surface);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-input-group:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px var(--goleo-purple-subtle);
+}
+
+.auth-input {
+    border: none !important;
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+}
+
+.auth-input:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.auth-input::placeholder {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+}
+
+.auth-pwd-toggle-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.auth-pwd-toggle-btn:hover {
+    color: var(--color-primary);
+    background: transparent;
+}
+
+.auth-pwd-toggle-btn i {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-goleo-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: #FFFFFF !important;
+    border: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: var(--font-heading);
+}
+
+.btn-goleo-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(108, 76, 207, 0.35) !important;
+    filter: brightness(1.05);
+}
+
+.btn-goleo-primary:active {
+    transform: translateY(0);
+}
+
+.auth-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.auth-link:hover {
+    color: var(--color-orange);
+    text-decoration: underline;
+}
+
+/* Divisor sutil en tarjetas de autenticación */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+.auth-divider span {
+    padding: 0 12px;
+    text-transform: lowercase;
+}
+
+/* Caja de demostración para docentes y evaluadores */
+.auth-demo-box {
+    background: var(--bg-card-alt);
+    border: 1.5px dashed var(--border-color);
+    transition: all 0.25s ease;
+}
+.auth-demo-box:hover {
+    border-color: var(--color-primary);
+    background: var(--bg-surface);
+}
+
+.auth-demo-text {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+/* Botón secundario de demostración (distinto del primario sin competir visualmente) */
+.btn-goleo-demo {
+    background: var(--bg-surface);
+    color: var(--color-primary) !important;
+    border: 2px solid var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 700;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-goleo-demo:hover {
+    background: var(--goleo-purple-subtle);
+    color: var(--color-primary-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(108, 76, 207, 0.18);
+}
+.btn-goleo-demo:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 576px) {
+    .auth-topbar {
+        padding: 1rem 1rem;
+    }
+    .auth-card-content {
+        padding: 1.75rem 1.25rem;
+    }
+    .auth-title {
+        font-size: 1.55rem;
+    }
+    .auth-mascot-img {
+        height: 75px;
+    }
+}
+
+
